@@ -1,0 +1,49 @@
+application:
+  title: '@project.name@'
+  version: '@project.version@'
+
+spring:
+  jpa:
+    database: MYSQL
+    show-sql: true
+
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  datasource:
+    url: jdbc:mysql://sql10.freemysqlhosting.net:3306/sql10351993
+    username: sql10351993
+    password: 'jWHgP2xUbd'
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    beans:
+      enabled: true
+    health:
+      show-details: ALWAYS
+    shutdown: true
+
+  info:
+    build:
+      enabled: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        sql: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+      springframework:
+        web: debug
+
+
+server:
+  port: 8080
+
